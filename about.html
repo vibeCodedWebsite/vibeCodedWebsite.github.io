@@ -1,0 +1,154 @@
+<!-- please ignore the horible format 🙏 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About - Hecker625</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #060606;
+      color: #d0ffd9;
+      font-family: "Inter", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 70px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Neon grid background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(#0a0a0a 2px, transparent 2px),
+        linear-gradient(90deg, #0a0a0a 2px, transparent 2px);
+      background-size: 70px 70px;
+      opacity: 0.23;
+      z-index: -1;
+    }
+
+    /* Radial glow background */
+    body::after {
+      content: "";
+      position: fixed;
+      width: 1100px;
+      height: 1100px;
+      background: radial-gradient(circle, rgba(0,255,120,0.18), rgba(0,255,120,0) 65%);
+      filter: blur(90px);
+      z-index: -2;
+      animation: bgPulse 6s infinite alternate ease-in-out;
+    }
+
+    @keyframes bgPulse {
+      from { transform: scale(1); opacity: 0.35; }
+      to   { transform: scale(1.2); opacity: 0.55; }
+    }
+
+    /* Title */
+    h1 {
+      color: #00ffb3;
+      font-size: 38px;
+      margin: 0 0 25px 0;
+      text-shadow: 0 0 18px #00ffbf, 0 0 40px #00ffbf;
+      animation: slideDown 1.2s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-80px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Profile image */
+    img {
+      width: 230px;
+      border-radius: 1000px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 25px rgba(0,255,150,0.5);
+      animation: fadeIn 1.4s ease-out, glow 4s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { transform: scale(0.6); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes glow {
+      50% { box-shadow: 0px 0px 45px #00ff88; }
+    }
+
+    /* About text box */
+    .about-box {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(0,255,120,0.32);
+      backdrop-filter: blur(8px);
+      width: 80%;
+      max-width: 600px;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 0 22px rgba(0,255,140,0.25);
+      animation: fadeUp 1.6s ease-out;
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(60px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    .about-box p {
+      color: #c9ffe8;
+      font-size: 18px;
+      line-height: 1.6em;
+    }
+
+    /* Back home button */
+    .back-home {
+      margin-top: 35px;
+      padding: 12px 26px;
+      font-size: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,255,140,0.35);
+      background: #0e0e0e;
+      color: #c9ffe8;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 16px rgba(0,255,150,0.25);
+      transition: 0.25s;
+      animation: fadeUp 1.9s ease-out;
+    }
+
+    .back-home:hover {
+      background: #00ffbb;
+      color: #000;
+      box-shadow: 0 0 25px #00ffbb, 0 0 45px #00ffbb;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>About Me</h1>
+
+  <img src="profile.png">
+
+  <div class="about-box">
+    <p><strong>Name:</strong> Hecker625</p>
+    <p><strong>Developer, and digital tinkerer.</strong></p>
+    <p>
+      I make fun apps and tools.
+    </p>
+    <p>
+        Check out my github at <a href="https://github.com/Hecker625">@Hecker625</a>
+    </p>
+  </div>
+
+  <a href="index.html" class="back-home">← Back to Home</a>
+
+</body>
+</html>
