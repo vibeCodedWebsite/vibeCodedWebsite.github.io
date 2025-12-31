@@ -23,6 +23,27 @@ body::after {
   pointer-events: none;
 }
 
+.home-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #00ffcc;
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid rgba(0, 255, 150, 0.25);
+    box-shadow: 0 0 12px rgba(0,255,150,0.3);
+    backdrop-filter: blur(6px);
+    transition: 0.25s ease;
+}
+
+.home-btn:hover {
+  background: #00ffbb;
+  color: #000;
+}
+
 .app {
   display: flex;
   justify-content: center;
@@ -41,7 +62,7 @@ h2 {
   margin-top: 0;
 }
 
-button {
+button.primary {
   background: #0f0f0f;
   color: #00ffcc;
   border: 1px solid rgba(0,255,120,0.25);
@@ -50,10 +71,9 @@ button {
   width: 100%;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
-button:hover {
+button.primary:hover {
   background: #00ffbb;
   color: #000;
 }
@@ -82,11 +102,14 @@ input[type="file"] {
 
 <body>
 
+<!-- Home button (now same size as calculator) -->
+<button class="home-btn" onclick="goHome()">← Back to Home</button>
+
 <div class="app">
   <div class="panel">
     <h2>File Inspector</h2>
 
-    <button id="openFile">Select File</button>
+    <button class="primary" id="openFile">Select File</button>
     <input type="file" id="fileInput">
 
     <div id="fileInfo" class="file-info" style="display:none;"></div>
@@ -94,6 +117,10 @@ input[type="file"] {
 </div>
 
 <script>
+function goHome() {
+  window.location.href = "index.html";
+}
+
 const openFileBtn = document.getElementById("openFile");
 const fileInput = document.getElementById("fileInput");
 const fileInfo = document.getElementById("fileInfo");
@@ -128,7 +155,6 @@ fileInput.onchange = () => {
     <div><span class="label">Last Modified:</span></div>
     <div>• ${lastModified.toLocaleDateString()}</div>
     <div>• ${lastModified.toLocaleTimeString()}</div>
-    <div><span class="label">Readable:</span> ${f.size < 1024**3 ? "Yes" : "Large file"}</div>
   `;
 };
 </script>
